@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://java.sun.com/JSP/Page">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<table border="1">
+    <caption>Employees Table</caption>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Operations</th>
+    </tr>
+
+
+    <tr th:each="allUser:${allUser}">
+
+
+        <td th:text="${allUser.name}"> name</td>
+        <td th:text="${allUser.surname}"> surname</td>
+        <td th:text="${allUser.department}"> department</td>
+        <td th:text="${allUser.salary}"> salary</td>
+        <td>
+            <a th:href="@{/update/{id}(id=${allUser.id})}">edit</a>
+
+        <a th:href="@{/deleteUser/{id}(id=${allUser.id})}">delete</a>
+
+        </td>
+    </tr>
+</table>
+<br>
+
+<input type = "button" value="Add"
+       onclick="window.location.href = 'addNewUser'"/>
+</body>
+</html>
