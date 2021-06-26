@@ -8,7 +8,8 @@
 <body>
 
 <table border="1">
-    <caption>Employees Table</caption>
+    <h1>User Table</h1>
+    <br>
     <tr>
         <th>Name</th>
         <th>Surname</th>
@@ -28,14 +29,16 @@
         <td>
             <a th:href="@{/update/{id}(id=${allUser.id})}">edit</a>
 
-        <a th:href="@{/deleteUser/{id}(id=${allUser.id})}">delete</a>
+            <a th:href="@{/deleteUser/{id}(id=${allUser.id})}">delete</a>
 
         </td>
     </tr>
 </table>
+
 <br>
 
-<input type = "button" value="Add"
+<input type="button" value="Add"
        onclick="window.location.href = 'addNewUser'"/>
+
 </body>
 </html>

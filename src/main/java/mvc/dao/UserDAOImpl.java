@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public User getUser(Long id) {
-        return entityManager.find(User.class,id);
+        return entityManager.find(User.class, id);
     }
 
     @Override
@@ -39,6 +39,7 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public void deleteUser(Long id) {
         entityManager.createQuery("delete from User where id =:userId")
-                .setParameter("userId",id).executeUpdate();
+                .setParameter("userId", id)
+                .executeUpdate();
     }
 }
