@@ -13,8 +13,13 @@ import java.util.List;
 @RequestMapping("")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String showAllUser(Model model) {
@@ -46,13 +51,13 @@ public class UserController {
         return "updateUser";
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public String edit(@ModelAttribute("user") User user) {
         userService.update(user);
         return "redirect:/";
     }
 
-    @GetMapping("/deleteUser/{id}")
+    @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable(name = "id") Long id){
         userService.deleteUser(id);
         return "redirect:/";
